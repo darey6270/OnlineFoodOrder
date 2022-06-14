@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-80dse$+(aotc89e@waxq344pmvmc96&g480qv(gpsoiupb9#et
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['allgrace-onlinefood.herokuapp.com']
+ALLOWED_HOSTS = ['darey6270-onlinefood.herokuapp.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -133,5 +133,5 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
