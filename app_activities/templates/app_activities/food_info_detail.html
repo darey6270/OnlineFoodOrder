@@ -1,0 +1,95 @@
+{% extends 'app_activities/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} Everything you need to know about food {% endblock %}
+
+{% block banner %}
+<header class="info-header">
+  <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Food item Details</h1>
+                <a href="">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">Details of food item</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block content1 %}
+
+<section class="text-center">
+    <h2 class="mb-0 mt-5 font-weight-bold" style="color:#ff5722;">Food Details</h2>
+    <div class="row d-flex justify-content-center mb-3">
+      <blockquote class="blockquote mt-0">
+        <footer class="blockquote-footer">food name <cite title="Source Title">{{food.name}}</cite></footer>
+        </blockquote>
+    </div>
+    <!-- video -->
+    <div class="row d-flex justify-content-center mb-3">
+        <div class="row d-flex justify-content-center mb-3">
+            <div class="col-md-3">
+                <div class="card box-shadow-hover">
+                <div class="card-header">
+                    <img src="{{product.image.url}}" class="card-img" alt="No image found" height="200px" width="200px">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title py-2">food name : {{product.name}} <hr style="color:#ff5722;height:4px;" /></h5>
+                    <p class="card-text">food Description :{{product.description}}</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-8">
+                <div class="table-responsive-sm table-responsive-md table-responsive-xl table-responsive-lg table-responsive-xxl table-bordered border-primary">
+                    <table class="table">
+                        <tr>
+                            {% if product.name %}
+                            <th scope="row">Food name:</th>
+                            <td>{{product.name}}</td>
+                            {% endif %}
+                            {% if product.price %}
+                            <th scope="row">Food price:</th>
+                            <td>#{{product.price}}</td>
+                            {% endif %}
+                            {% if product.created %}
+                            <th scope="row">It was created on:</th>
+                            <td>{{product.created}}</td>
+                            {% endif %}
+                            <br />
+                        </tr>
+                          <tr>
+                            {% if product.description %}
+                            <th scope="row">The food Description:</th>
+                            <td>{{product.description}}</td>
+                            {% endif %}
+                            {% if product.available %}
+                            <th scope="row"> The food is available:</th>
+                            <td>on menu list</td>
+                            {% endif %}
+                            <br />
+                          </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- update and delete button -->
+    <div class="row d-flex justify-content-center mb-3 mt-3">
+        {% if user.is_authenticated or user.is_superuser %}
+        <div class="col-md-6 mb-3 text-center">
+            <a href="{% url 'app_activities:food_info_update' slug=product.category.slug pk=product.pk %}" class="btn btn-warning btn-lg mr-4 btn-block">Update FoodInfo</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'app_activities:food_info_delete' slug=product.category.slug  pk=product.pk %}" class="btn btn-danger btn-lg mr-4 btn-block"> Delete FoodInfo </a>
+        </div>
+        {% endif %}
+    </div>
+
+    </div>
+    </div>
+</section>
+
+{%endblock%}

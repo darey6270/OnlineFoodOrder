@@ -1,0 +1,45 @@
+{% extends 'app_activities/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block banner %}
+<header class="info-header">
+  <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Sign in to To Your Account</h1>
+                <a href="">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">Admin Sign</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{%block content1 %}
+<section class="user-login section">
+	<div class="container">
+
+		<div class="row justify-content-center">
+			<div class="col-4  text-center">
+					<!-- Content -->
+					<div class="content text-center">
+						<div class="title-text">
+							<h3>Admin Login</h3>
+						</div>
+						<form method="post">
+							{%csrf_token%}
+							<!-- Username -->
+          {% render_field form.username|attr:'required:true'  class="form-control  " placeholder="Your username" %}
+		  {% render_field form.password|attr:'required:true'  class="form-control my-4" placeholder="Your password" %}
+							<!-- Submit Button -->
+							<button class="btn btn-info">sign in</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{%endblock%}

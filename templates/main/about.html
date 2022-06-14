@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- banner Start -->
+{%block banner %}
+<!-- Page Header Start -->
+    <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">About Us</h1>
+                <a href="">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">About</a>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- About Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
+                <h2 class="text-primary font-secondary">About Us</h2>
+                <h1 class="display-4 text-uppercase">Welcome To Our Online Food</h1>
+            </div>
+            <div class="row gx-5">
+                <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100" src="{% static 'other/img/7spices_rice.jpg' %}" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 pb-5">
+                    <h4 class="mb-4">What you don't know about us</h4>
+                    <p class="mb-5">The system also greatly lightens the load on the restaurants end,
+                        as the entire process of taking orders is automated.
+                        Within this application, all items in the order are displayed, along with their corresponding options and delivery details,
+                        in a concise and easy to read manner. </p>
+                    <div class="row g-5">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
+                                <i class="fa fa-heartbeat fa-2x text-white"></i>
+                            </div>
+                            <h4 class="text-uppercase">100% Healthy</h4>
+                            <p class="mb-0">This allows the restaurant employees to quickly go through the orders as they are
+                        placed and produce the necessary items with minimal delay and confusion.
+                        The greatest advantage of this system is its FLEXIBILITY</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
+                                <i class="fa fa-award fa-2x text-white"></i>
+                            </div>
+                            <h4 class="text-uppercase">Award Winning</h4>
+                            <p class="mb-0">The service has bring great Award for our reward</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+{%endblock%}
+
+{%block footer %}
+{% include 'include/footer.html' %}
+{%endblock %}

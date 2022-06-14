@@ -1,0 +1,88 @@
+{% extends 'app_activities/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block banner %}
+<header class="info-header">
+  <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Admin registration</h1>
+                <a href="">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">Registration</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+<!--=============================
+=            Sign Up            =
+==============================-->
+{%block content1 %}
+<section class="user-login section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-8 ">
+					<div class="content text-center">
+						<div class="title-text">
+							<h3>Admin form Registration</h3>
+						</div>
+					</div>
+						<form method="post" enctype="multipart/form-data">
+						{%csrf_token%}
+							<div class="form-group row">
+    <label class="col-sm-3  col-form-label">Username</label>
+    <div class="col-sm-9">
+      {% render_field form.username|attr:'required:true'   class="form-control main" placeholder="Your Username" %}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Firstname</label>
+    <div class="col-sm-9 my-3">
+      {% render_field form.first_name|attr:'required:true' class="form-control main" placeholder="Your Firstname" %}
+    </div>
+  </div>
+	<div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Lastname</label>
+    <div class="col-sm-9">
+      {% render_field form.last_name|attr:'required:true'  class="form-control main" placeholder="Your Lastname" %}
+	  </div>
+  </div>
+
+<div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Email</label>
+    <div class="col-sm-9 my-3">
+      {% render_field form.email|attr:'required:true'    class="form-control main" placeholder="Your Email address" %}	  </div>
+  </div>
+
+<div class="form-group row">
+    <label  class="col-sm-3 col-form-label"> Password</label>
+    <div class="col-sm-9">
+      {% render_field form.password1|attr:'required:true'  class="form-control main" placeholder="Your password" %}
+	  </div>
+  </div>
+
+<div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Confirm password</label>
+    <div class="col-sm-9 my-3">
+      {% render_field form.password2|attr:'required:true'  class="form-control main" placeholder="Confirm password" %}
+
+	  </div>
+  </div>
+
+  <div class="form-group row justify-content-center">
+    <div class="col-6">
+      <button type="submit" class="btn btn-primary">Create Account</button>
+    </div>
+  </div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{%endblock%}

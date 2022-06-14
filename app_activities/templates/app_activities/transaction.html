@@ -1,0 +1,121 @@
+{% extends 'app_activities/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} Transaction notification {% endblock %}
+
+{% block banner %}
+<header class="info-header">
+  <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Transaction notification</h1>
+                <a href="">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">List transaction notifications</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block content1 %}
+
+<section class="text-center">
+    <h2 class="mb-0 mt-5 font-weight-bold" style="color:#ff5722;">Transaction notifications</h2>
+    <div class="row d-flex justify-content-center mb-3">
+      <blockquote class="blockquote mt-0">
+        </blockquote>
+    </div>
+    <!-- video -->
+    <div class="row d-flex justify-content-center mb-3">
+        <div class="row d-flex justify-content-center mb-3">
+            <div class="col-md-1">
+
+            </div>
+            </div>
+            <div class="col-md-10">
+                <div class="table-responsive-sm table-responsive-md table-responsive-xl table-responsive-lg table-responsive-xxl table-bordered border-primary">
+                    <table class="table">
+                              <tr>
+                                <td>Order firstname</td>
+                                <td>Order lastname</td>
+                                <td>Order email</td>
+                                <td>Address</td>
+                                <td>Postal code</td>
+                                <td>City</td>
+                                <td>Phone number</td>
+                                <td>Paid</td>
+                                <td>Payment email</td>
+                                <td>Card number</td>
+                                <td>Card date</td>
+                                <td>Card name</td>
+                                <td>Delete transaction</td>
+
+                            </tr>
+                            {% for order in orders.all %}
+                              <tr>
+                                {% if order.first_name %}
+                                <td>{{order.first_name}}</td>
+                                {% endif %}
+
+                                  {% if order.last_name %}
+                                <td>{{order.last_name}}</td>
+                                {% endif %}
+
+                                 {% if order.email %}
+                                <td>{{order.email}}</td>
+                                {% endif %}
+
+                                 {% if order.address %}
+                                <td>{{order.address}}</td>
+                                {% endif %}
+
+                                {% if order.postal_code %}
+                                <td>{{order.postal_code}}</td>
+                                {% endif %}
+
+                                {% if order.city %}
+                                <td>{{order.city}}</td>
+                                {% endif %}
+                              {% if order.phone_no %}
+                                <td>{{order.phone_no}}</td>
+                                {% endif %}
+
+                                {% if not order.paid %}
+                                <td>Yes</td>
+                                {% endif %}
+                                 {% for orde in order.payment.all %}
+
+                                {% if orde.email %}
+                                <td>{{orde.email}}</td>
+                                {% endif %}
+
+                                {% if orde.card_number %}
+                                <td>{{orde.card_number}}</td>
+                                {% endif %}
+
+                                {% if orde.card_date %}
+                                <td>{{orde.card_date}}</td>
+                                {% endif %}
+
+                                {% if orde.card_name %}
+                                <td>{{orde.card_name}}</td>
+                                {% endif %}
+                                   <td><a href="{% url 'app_activities:admin_delete_payment' pk=order.pk id=orde.id %}">Delete</a></td>
+                                 {%endfor%}
+                            </tr>
+                        {%endfor%}
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+</section>
+
+{%endblock%}

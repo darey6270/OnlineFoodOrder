@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Your shopping cart
+{% endblock %}
+
+{%block banner %}
+<!-- Page Header Start -->
+    <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Food Details</h1>
+                <a href="">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">Food ordered details</a>
+            </div>
+        </div>
+    </div>
+
+<div class="container-fluid about py-5">
+        <div class="container">
+                <div class="row g-3">
+                     <div class="col-md-6 border">
+    <img {% if product.image %}
+         src="{{ product.image.url }}"
+         {%endif%}
+          height="200" width="400" />
+         <h1 class="text-primary font-secondary">{{ product.name }}</h1>
+        <h2 class="text-primary font-primary"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
+            <br>
+<p class="text-primary font-primary" >#{{ product.price }}</p>
+<form action="{% url 'cart:cart_add' product.id %}" method="post">
+{{ cart_product_form }}
+{% csrf_token %}
+<input type="submit" value="Add to cart">
+</form>
+{{ product.description|linebreaks }}
+    </div>
+                    <div class="col-md-6 border border-primary">
+    <img class='img-fluid' src="{% static 'other/img/group_chefs.jpg' %}"/>
+    </div>
+ </div>
+ </div>
+</div>
+{%endblock%}
+
+
+{%block footer %}
+{% include 'include/footer.html' %}
+{%endblock %}

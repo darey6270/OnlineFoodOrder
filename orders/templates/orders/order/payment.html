@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Make payment
+{%endblock%}
+
+{%block banner %}
+<!-- Page Header Start -->
+    <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Fill in your detail</h1>
+                <a href="">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">Make payment</a>
+            </div>
+        </div>
+    </div>
+
+ <center><h1 class="text-uppercase">Your payment will be process after you fill out the form</h1></center>
+
+
+
+<div class="container-fluid  my-5 py-5" >
+        <div class="container py-5">
+            <div class="row gx-5 justify-content-center">
+                    <div class="col-md-5 text-center">
+                <form  method="post" class="text-white font-primary">
+                  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleFormControlInput1" class="text-primary"> <strong> Email address </strong></label>
+      <input type="email" required class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
+  </div>
+ <div class="form-group">
+   <label for="exampleFormControlInput1" class="text-primary "> <strong>Card information</strong></label>
+     <input type="number" required class="form-control" id="exampleInputEmail2" name="card_number" aria-describedby="emailHelp" placeholder="Card number">
+     <input type="date" required class="form-control" id="exampleInputEmail1" name="card_date" aria-describedby="emailHelp" placeholder="Card date">
+ </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput" class="text-primary"><strong>Name on the card</strong></label>
+        <input type="text" required class="form-control" name="card_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Card name">
+      </div>
+
+         <p><input type="submit" value="Make Payment" class="font-secondary"></p>
+</form></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}
+
+
+{%block footer %}
+{% include 'include/footer.html' %}
+{%endblock %}

@@ -1,0 +1,82 @@
+{% extends 'app_activities/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{%block banner %}
+<header class="info-header">
+  <div class="container-fluid bg-dark bg-img p-5 mb-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-uppercase text-white">Update Existing registered  food</h1>
+                <a href="">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="">Update an item</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+<!--=============================
+=            Sign Up            =
+==============================-->
+{%block content1 %}
+<section class="user-login section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-8 ">
+					<div class="content text-center">
+						<div class="title-text">
+							<h3>Update an item</h3>
+						</div>
+					</div>
+						<form method="post" enctype="multipart/form-data">
+						{%csrf_token%}
+							<div class="form-group row">
+    <label class="col-sm-3  col-form-label">Food name</label>
+    <div class="col-sm-9">
+      {% render_field form.name|attr:'required:true'   class="form-control main" placeholder="The food name" %}
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Food image</label>
+    <div class="col-sm-9 my-3">
+      {% render_field form.image|attr:'required:true' class="form-control main" placeholder="Food image" %}
+    </div>
+  </div>
+	<div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Description</label>
+    <div class="col-sm-9">
+      {% render_field form.description|attr:'required:true'  class="form-control main" placeholder="Food description" %}
+	  </div>
+  </div>
+
+<div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Food price</label>
+    <div class="col-sm-9 my-3">
+      {% render_field form.price|attr:'required:true'    class="form-control main" placeholder="Food price" %}	  </div>
+  </div>
+
+  <div class="form-group row justify-content-center">
+    <div class="col-6">
+      <button type="submit" class="btn btn-primary">Update food detail</button>
+    </div>
+  </div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+  <!-- To Top -->
+  <div class="scroll-top-to">
+    <i class="ti-angle-up"></i>
+  </div>
+
+{%endblock%}
+
